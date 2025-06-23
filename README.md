@@ -58,29 +58,29 @@ portfolio-ejs/
 
 ## 📦 How to Use
 
-1. **Clone the repository**
+## 1. **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/portfolio-website.git
    cd portfolio-website
 
+```
 
-
-2 ##.Install dependencies
+## 2 .Install dependencies
 ```
 npm install
 ```
-3 ##.Run the development server
+## 3 .Run the development server
 ```
 node server.js
 
 ```
-4 ##.View in browser
+## 4 .View in browser
 ```
 http://localhost:3000
 
 ```
 
-🙋‍♂️ Author
+## 🙋‍♂️ Author
 Sheikh Adeel
 📍 Vehari, Pakistan
 🎓 BSCS - COMSATS University, Vehari Campus
