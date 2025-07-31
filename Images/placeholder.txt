@@ -1,0 +1,6 @@
+This directory should contain:
+- header.jpg (background image for the hero section)
+- cv.pdf (your CV/resume file for download)
+
+Please add your header.jpg image file here for the hero background.
+Please add your cv.pdf file here for the download functionality.

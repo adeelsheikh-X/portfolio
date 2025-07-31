@@ -285,6 +285,92 @@ class ScrollAnimations {
     }
 }
 
+// CV Download Management
+class CVDownloadManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        const cvButton = document.querySelector('.cv-download');
+        if (cvButton) {
+            cvButton.addEventListener('click', (e) => this.handleCVDownload(e));
+        }
+    }
+
+    handleCVDownload(e) {
+        const link = e.currentTarget;
+        const href = link.getAttribute('href');
+        
+        // Check if the CV file exists
+        fetch(href, { method: 'HEAD' })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('CV file not found');
+                }
+                
+                // Show download notification
+                this.showDownloadNotification('CV download started!', 'info');
+                
+                // Track download (optional analytics)
+                this.trackDownload();
+            })
+            .catch(error => {
+                e.preventDefault();
+                this.showDownloadNotification('CV file not found. Please contact me directly.', 'error');
+                console.error('CV download error:', error);
+            });
+    }
+
+    trackDownload() {
+        // Optional: Track CV downloads for analytics
+        console.log('CV downloaded at:', new Date().toISOString());
+        
+        // You can add analytics tracking here
+        // Example: gtag('event', 'download', { 'event_category': 'CV' });
+    }
+
+    showDownloadNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <i class="fas ${type === 'error' ? 'fa-exclamation-triangle' : 'fa-download'}"></i>
+            <span>${message}</span>
+        `;
+        
+        // Styles
+        Object.assign(notification.style, {
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            padding: '15px 20px',
+            borderRadius: '10px',
+            color: 'white',
+            fontWeight: '500',
+            zIndex: '10000',
+            transform: 'translateX(100%)',
+            transition: 'transform 0.3s ease',
+            backgroundColor: type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#3b82f6',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+        });
+        
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Auto remove
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => notification.remove(), 300);
+        }, 4000);
+    }
+}
+
 // Form Management
 class FormManager {
     constructor() {
