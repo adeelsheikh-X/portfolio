@@ -718,29 +718,52 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 4rem;
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+}
+
+.info-title {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+    position: relative;
+}
+
+.info-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.5rem;
+    padding: 1.2rem;
     background: var(--bg-secondary);
     border-radius: 15px;
     box-shadow: var(--shadow-light);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
 }
 
 .contact-item:hover {
     transform: translateX(10px);
+    border-left-color: var(--primary-color);
+    box-shadow: var(--shadow-medium);
 }
 
 .contact-icon {
@@ -767,7 +790,11 @@ h1, h2, h3, h4, h5, h6 {
 .social-links {
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
 }
 
 .social-link {
@@ -790,24 +817,45 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-form {
     background: var(--bg-secondary);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 20px;
     box-shadow: var(--shadow-light);
+    max-width: 100%;
+}
+
+.form-title {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+    position: relative;
+}
+
+.form-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 15px;
+    padding: 12px 15px;
     border: 2px solid var(--border-color);
     border-radius: 10px;
     background: var(--bg-color);
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
     font-family: inherit;
 }
@@ -821,7 +869,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
 }
 
 /* Footer */
@@ -1004,6 +1052,16 @@ h1, h2, h3, h4, h5, h6 {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .contact-form {
+        order: 2;
+        padding: 1.2rem;
+    }
+
+    .contact-info {
+        order: 1;
+        gap: 1rem;
     }
 
     .hero-buttons {
