@@ -588,6 +588,7 @@ class App {
         new ProjectFilter();
         new ScrollAnimations();
         new FormManager();
+        new CVDownloadManager();
         new PerformanceOptimizer();
         
         // Add loading complete class
